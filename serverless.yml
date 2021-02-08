@@ -1,0 +1,97 @@
+service: fazenda-do-juca
+
+provider:
+  name: aws
+  runtime: go1.x
+
+package:
+ exclude:
+   - ./**
+ include:
+   - ./bin/**
+
+functions:
+  breed:
+    handler: bin/breed
+    events:
+      - http:
+          path: breed
+          method: get
+      - http:
+          path: breed
+          method: post
+      - http:
+          path: breed
+          method: put
+      - http:
+          path: breed
+          method: delete
+    environment:
+      DB_ENDPOINT: "${file(env.json):DB_ENDPOINT}"
+      DB_PORT: ${file(env.json):DB_PORT}
+      DB_NAME: ${file(env.json):DB_NAME}
+      DB_USERNAME: ${file(env.json):DB_USERNAME}
+      DB_PASSWORD: ${file(env.json):DB_PASSWORD}
+  gender:
+    handler: bin/gender
+    events:
+      - http:
+          path: gender
+          method: get
+      - http:
+          path: gender
+          method: post
+      - http:
+          path: gender
+          method: put
+      - http:
+          path: gender
+          method: delete
+    environment:
+      DB_ENDPOINT: "${file(env.json):DB_ENDPOINT}"
+      DB_PORT: ${file(env.json):DB_PORT}
+      DB_NAME: ${file(env.json):DB_NAME}
+      DB_USERNAME: ${file(env.json):DB_USERNAME}
+      DB_PASSWORD: ${file(env.json):DB_PASSWORD}
+  purity:
+    handler: bin/purity_level
+    events:
+      - http:
+          path: purity
+          method: get
+      - http:
+          path: purity
+          method: post
+      - http:
+          path: purity
+          method: put
+      - http:
+          path: purity
+          method: delete
+    environment:
+      DB_ENDPOINT: "${file(env.json):DB_ENDPOINT}"
+      DB_PORT: ${file(env.json):DB_PORT}
+      DB_NAME: ${file(env.json):DB_NAME}
+      DB_USERNAME: ${file(env.json):DB_USERNAME}
+      DB_PASSWORD: ${file(env.json):DB_PASSWORD}
+  animals:
+    handler: bin/animals
+    events:
+      - http:
+          path: animals
+          method: get
+      - http:
+          path: animals
+          method: post
+      - http:
+          path: animals
+          method: put
+      - http:
+          path: animals
+          method: delete
+    environment:
+      DB_ENDPOINT: "${file(env.json):DB_ENDPOINT}"
+      DB_PORT: ${file(env.json):DB_PORT}
+      DB_NAME: ${file(env.json):DB_NAME}
+      DB_USERNAME: ${file(env.json):DB_USERNAME}
+      DB_PASSWORD: ${file(env.json):DB_PASSWORD}

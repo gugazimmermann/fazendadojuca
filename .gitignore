@@ -1,0 +1,16 @@
+env.json
+
+### Go ###
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+/bin/
+/vendor/
+/Godeps/
+
+### Serverless ###
+.serverless
